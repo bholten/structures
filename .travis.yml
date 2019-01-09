@@ -3,5 +3,7 @@ python:
   - 2.7
   - 3.6
   - 3.7
+script:
+  - pytest tests/unit/tests_structures.py
 install:
   - python setup.py build
