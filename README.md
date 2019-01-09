@@ -15,6 +15,29 @@ constructor is simply a function called `structure` within the
 module. There is a helper factory function that generates a class,
 however it is not intended to be used directly.
 
+## Usage
+`structures` are superficially similiar to Ruby's `Struct` class.
+Attributes can be called as if they were a class.
+
+```python
+from structures import structure
+
+foo = structure(a=1, b=2, c=3)
+foo.a
+>>> 1
+
+foo.b
+>>> 2
+
+foo.c
+>>> 3
+```
+
+## Install
+```bash
+pip install py_structures
+```
+
 ## Examples
 Using the `sys` module's `getsizeof` function is generally unreliable,
 especially with nested data structures. For these tests, I used the
