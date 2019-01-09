@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='structures',
+    name='py_structures',
     version='0.0.1',
     packages=find_packages(),
     setup_requires=["pytest-runner"],
