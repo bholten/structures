@@ -1,18 +1,19 @@
-# A somewhat perfomant implementation of C-style structures.
-# Abuses the __slots__ attribute to gain some extra performance.
+# An implementation of C-style, mutable structs that should have
+# (in theory) relatively good performance.
 
+def __struct(**kwargs):
+    class Inner(object):
+        __slots__ = kwargs.keys()
 
-class Struct(object):
-    """Simple Struct class.
+    struc = Inner()
 
-    Accepts arbitrary keywords arguments and then assigns them to its internal __dict__ attribute.
-    """
-    def __init__(self, **kwargs):
-        self.__dict__.update(kwargs)
+    for k, v in kwargs.items():
+        setattr(struc, k, v)
+
+    return struc
 
 
 def structure(**kwargs):
-    """Creates and instance of Struct and then loads its attributes into the internal __slots__ field."""
-    struc = Struct(**kwargs)
-    struc.__slots__ = kwargs.keys()
+    """Creates a struct given some keyword arguments."""
+    struc = __struct(**kwargs)
     return struc
