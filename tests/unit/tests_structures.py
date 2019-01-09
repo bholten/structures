@@ -1,4 +1,5 @@
 # Basic testing
+import pytest
 from structures import structure
 
 
@@ -39,3 +40,20 @@ def test_different_strucs_dont_conflict():
 
     assert foo.a == 3
     assert bar.a == 100
+
+
+def test_inner_class_doesnt_persist():
+    foo = structure(a=1, b=2)
+    bar = structure(c=3, d=4)
+
+    with pytest.raises(AttributeError):
+        foo.c
+
+    with pytest.raises(AttributeError):
+        foo.d
+
+    with pytest.raises(AttributeError):
+        bar.a
+
+    with pytest.raises(AttributeError):
+        bar.b

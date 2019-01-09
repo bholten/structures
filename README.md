@@ -35,7 +35,7 @@ foo.c
 
 ## Install
 ```bash
-pip install py_structures
+pip install py-structures
 ```
 
 ## Examples
