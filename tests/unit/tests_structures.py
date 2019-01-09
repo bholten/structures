@@ -1,5 +1,5 @@
 # Basic testing
-from structures import structure
+from src.structures import structure
 
 
 def test_basic_structures():

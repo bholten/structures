@@ -1,9 +1,11 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name='structures',
     version='0.0.1',
-    packages=['structures'],
+    packages=find_packages(),
+    setup_requires=["pytest-runner"],
+    tests_require=["pytest"],
     url='https://github.com/bholten/structures',
     license='MIT',
     author='Brennan Holten',
