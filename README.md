@@ -12,15 +12,15 @@ any?) benefit to doing this in PyPy.
 
 These are intended to be used as data containers, so the primary
 constructor is simply a function called `structure` within the
-module. There is a helper factory function that generates a class,
-however it is not intended to be used directly.
+module. There is also a helper factory function that generates an 
+uninitialized Struct.
 
 ## Usage
 `structures` are superficially similiar to Ruby's `Struct` class.
 Attributes can be called as if they were a class.
 
 ```python
-from structures import structure
+from structures import *
 
 foo = structure(a=1, b=2, c=3)
 foo.a
@@ -31,6 +31,15 @@ foo.b
 
 foo.c
 >>> 3
+
+# Struct is a factory function.
+bar = Struct("health", "stamina", "magic")
+baz = bar(health=10, stamina=7.5, magic=5)
+
+baz.health
+>>> 10
+# ... and so on
+
 ```
 
 ## Install
