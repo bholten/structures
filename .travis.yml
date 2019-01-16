@@ -6,3 +6,11 @@ script:
 - python setup.py test
 install:
 - python setup.py build
+deploy:
+  provider: pypi
+  skip_existing: true
+  user: bholten
+  on:
+    tags: true
+  password:
+    secure: cjD+6gzZiaxyDUbVcc9CyGmJBSq7AQVLukN5aQ+rST4P6/oX4vwwuIBrM0XpdqXXze/Nj+CFTtpbIxlt8S1dKf0Knt7PgyDNVZsdhcvEAr50JP0ZnwXkyMXZYdQBvETwFRyLlPPNEIjpENO3CH4Ti+Bk9eV5Qh+MJmqla293hcWfseggXMpOCnvmmAp6ec8rsKQ2pXhh0g2AzDzxJf8TdEfI0qpuFMf/U1w/jP9daXS+mQ4mhmV+6chlIFQn5YhTqNF8tb2i7lfBrd2ZPnOoVGvxaI90FM7GY/zu+6aiFn4zN20BaF64WQgZ426VrGq24MY/jBEd9GZRWz9fM6aoRm1gLhIuOOivqVg05yu0iU/Z/5rVllND1U0wWEamWrx0BBidULh8gZ/Im5g6CjDGN2ka1g34wkMV8iBFPKpVp8mWbm8hyM9DSkfQIkEEbN4vAo7IldHiDbonNMrv9I46fsMUwm3mJ7qdbZH2YEAZUKoBReKWE+o47/fMfUYOKLzhyyn6pSdei0KaAHF94dlRHbSRlzgP9V1XUTT1RSZ7zWqY4TiAhFA6StgldO9ubaqj2P4q5X0bPdQ/ALALioYA+p5arXQDrwHIaZLTr7RVzv4utNcM/rbyJO1ZdfHj31gj9dKWeECzzhc9HCJupt8VJKKvX4Yg8pgMrWWid/mXwUA=
