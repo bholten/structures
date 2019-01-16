@@ -2,7 +2,8 @@ from setuptools import setup, find_packages
 
 setup(
     name='py-structures',
-    version='0.1.2',
+    version='0.1.5',
+    python_requires='>=2.7',
     packages=find_packages(),
     setup_requires=["pytest-runner"],
     tests_require=["pytest"],
