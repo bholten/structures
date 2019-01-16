@@ -12,35 +12,55 @@ any?) benefit to doing this in PyPy.
 
 These are intended to be used as data containers, so the primary
 constructor is simply a function called `structure` within the
-module. There is also a helper factory function that generates an 
+module. There is also a helper factory function that generates an
 uninitialized Struct.
 
 ## Usage
-`structures` are superficially similiar to Ruby's `Struct` class.
-Attributes can be called as if they were a class.
+Here is an example:
 
 ```python
-from structures import *
-
-foo = structure(a=1, b=2, c=3)
-foo.a
->>> 1
-
-foo.b
->>> 2
-
-foo.c
->>> 3
-
-# Struct is a factory function.
-bar = Struct("health", "stamina", "magic")
-baz = bar(health=10, stamina=7.5, magic=5)
-
-baz.health
->>> 10
-# ... and so on
-
+>>> from structures import *
+>>> foo = structure(a=1, b=2, c=3)
+>>> foo.a
+1
+>>> foo.b
+2
+>>> foo.c
+3
 ```
+
+Also note that there is a `Struct` factory function.
+
+```python
+>>> Character = Struct("health", "stamina", "magic")
+>>> player = Character(health=10, stamina=7.5, magic=5)
+>>> player.health
+10
+```
+... and so on.
+
+And here, attributes will be guarenteed to exist (at least as
+`__slots__`). Uninitialized attributes will default to `None`.
+
+```python
+>>> monster = Character(health=15, stamina=10)
+>>> monster.magic is None
+True
+```
+
+## Limitations
+Currently, anything created with `structure` or `Struct` will have the
+same class type, namely `Structure` (hence *pseudo* structs).
+
+```python
+>>> Character = Struct("health", "stamina", "magic")
+>>> player = Character(health=100, stamina=50, magic=25)
+>>> type(player)
+<class 'structures.structures.Structure'>
+```
+
+There may be some effort to improve this later, however I am not
+highly bothered by this due to Python's duck typing.
 
 ## Install
 ```bash
@@ -69,14 +89,14 @@ test_struct = structure(a=1024, b=1024, c=1024)
 test_dict   = dict(a=1024, b=1024, c=1024)
 test_class  = DummyClass(a=1024, b=1024, c=1024)
 
-asizeof.asizeof(test_struct)
->>> 96
+>>> asizeof.asizeof(test_struct)
+96
 
-asizeof.asizeof(test_dict)
->>> 424
+>>> asizeof.asizeof(test_dict)
+424
 
-asizeof.asizeof(test_class)
->>> 488
+>>> asizeof.asizeof(test_class)
+488
 ```
 
 ### Python 3.6
@@ -100,12 +120,12 @@ test_struct = structure(a=1024, b=1024, c=1024)
 test_dict   = dict(a=1024, b=1024, c=1024)
 test_class  = DummyClass(a=1024, b=1024, c=1024)
 
-asizeof.asizeof(test_struct)
->>> 96
+>>> asizeof.asizeof(test_struct)
+96
 
-asizeof.asizeof(test_dict)
->>> 440
+>>> asizeof.asizeof(test_dict)
+440
 
-asizeof.asizeof(test_class)
->>> 368
+>>> asizeof.asizeof(test_class)
+368
 ```

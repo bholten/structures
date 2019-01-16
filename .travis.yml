@@ -1,8 +1,15 @@
 language: python
 python:
-  - 2.7
-  - 3.6
+- 2.7
+- 3.6
 script:
-  - python setup.py test
+- python setup.py test
 install:
-  - python setup.py build
+- python setup.py build
+deploy:
+  provider: pypi
+  user: bholten
+  password:
+    secure: ksauszEz06fFUTubzgNV1YB+fiNu6jYB8Yv1PIRaZB9Ewxnn+9QTQgU2IRzAjyotLfjX+dKwuhUZUtRJYJ9ehQjMtT0BP2iiomr68R0Ln0i9YBDMWWxV7o3auiWyOdAZia26kgouFz52AGD/ccl2Lied7/zX9hIReBsyFDrBFaH1+BzR2Mc1b190OfHxRinwUgAGaXKOF5NoR15gZE8iiA1bEC8HuAsWvxMA0yPR+Vh8C6D9lUvhsygc1s+fQTjezWw/cTetUxJJbIKeVaIIZKqjeKMwJsmA4ZvrEvplWMnJBc9N6fs3xLprjeQsBkZacz5MBrSwxtPVocvqLs59opq/AxXyO8p0hAK+BNRpfnckSrQTSNjLRvjD7J1rAFGs+IQKFNfye9bs1V1ENd0BufNMJzL+Yf52+8xCfLyBD7NkinxWcKtpn3U/EQmB64gmbLZMwpAnmD4Oci41t4d+xp0LGcQAi+xt+qIKkbY41olrt8TqFPSHfyuFH1pDONAepdk6ZC+8Zl28tDcIqE2Tj8gPrXScgmHpLJFq8S4RgqVL/bbBHJE0nKCXQ5xnYXgQm06s1bpRkOLr9MYE/a5qWYCIqO50QHy/Boizryxqgyl25OZf08NwD8usmN5FLL8WGd6T6rY009x8JkSyDhMaYMrjCNz1Mj0hhtNNcY7Isc0=
+  on:
+    tags: true

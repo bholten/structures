@@ -11,6 +11,7 @@ def test_basic_structures():
     assert foo.d == 4
     assert foo.__slots__ is not None
 
+
 def test_structures_update():
     foo = structure(a=1, b=2, c=3, d=4)
 
