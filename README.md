@@ -91,10 +91,8 @@ test_class  = DummyClass(a=1024, b=1024, c=1024)
 
 >>> asizeof.asizeof(test_struct)
 96
-
 >>> asizeof.asizeof(test_dict)
 424
-
 >>> asizeof.asizeof(test_class)
 488
 ```
@@ -122,10 +120,18 @@ test_class  = DummyClass(a=1024, b=1024, c=1024)
 
 >>> asizeof.asizeof(test_struct)
 96
-
 >>> asizeof.asizeof(test_dict)
 440
-
 >>> asizeof.asizeof(test_class)
 368
 ```
+
+## Why not just use `namedtuple`?
+Prior to Python 3.7, `namedtuple` has similar memory footprint,
+however it has a limit of 255 attributes. A `structure` has no such
+limit.
+
+For Python 3.7 and above, the limit should be erased, and I would use
+`namedtuple`. See the following discussion:
+
+https://bugs.python.org/issue18896
