@@ -127,6 +127,8 @@ test_class  = DummyClass(a=1024, b=1024, c=1024)
 ```
 
 ## Why not just use `namedtuple`?
+tl;dr, in Python >= 3.7, you probably should just use `namedtuple`.
+
 Prior to Python 3.7, `namedtuple` has similar memory footprint,
 however it has a limit of 255 attributes. A `structure` has no such
 limit.

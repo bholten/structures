@@ -31,12 +31,7 @@ def structure(**kwargs):
                 setattr(self, k, v)
             return self
 
-    struc = Structure()
-
-    for k, v in kwargs.items():
-        setattr(struc, k, v)
-
-    return struc
+    return Structure().apply(**kwargs)
 
 
 def Struct(*args, **kwargs):
